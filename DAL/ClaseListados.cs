@@ -1,4 +1,5 @@
 ﻿using Entities;
+using Microsoft.Data.SqlClient;
 
 namespace DAL
 {
@@ -51,6 +52,60 @@ namespace DAL
             //se devuelve el listado
             return listado;
         }
+
+
+
+
+        #region funciones de BBDD
+
+
+        public static List<ClsPersona> ListadoPersonasAZURE()
+        {
+
+            //se crea la lista de personas
+            List<ClsPersona> listado = new List<ClsPersona>();
+
+
+            SqlConnection miConexion = new SqlConnection();
+            SqlCommand miComando = new SqlCommand();
+            SqlDataReader miLector;
+            ClsPersona oPersona;
+
+
+
+
+            miConexion.ConnectionString = EnlaceBBDD.enlace();
+            try
+            {
+                miConexion.Open();
+                //Creamos el comando (Creamos el comando, le pasamos la sentencia y la conexion, y lo ejecutamos)
+                miComando.CommandText = "SELECT * FROM personas";
+                miComando.Connection = miConexion;
+                miLector = miComando.ExecuteReader();
+
+
+
+
+
+
+                return listado;
+            }
+            catch (Exception ex)
+            {
+                return listado;
+            }
+        }
+
+        #endregion
+
+
+
+
+
+
+
+
+
 
         /// <summary>
         /// funcion para obtener la persona aleatoria de la lista de personas
