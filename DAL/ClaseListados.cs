@@ -58,6 +58,9 @@ namespace DAL
 
         #region funciones de BBDD
 
+        static SqlConnection miConexion = new SqlConnection();
+        static SqlCommand miComando = new SqlCommand();
+        static SqlDataReader miLector;
 
         public static List<ClsPersona> ListadoPersonasAZURE()
         {
@@ -66,15 +69,12 @@ namespace DAL
             List<ClsPersona> listado = new List<ClsPersona>();
 
 
-            SqlConnection miConexion = new SqlConnection();
-            SqlCommand miComando = new SqlCommand();
-            SqlDataReader miLector;
             ClsPersona oPersona;
 
 
 
 
-            miConexion.ConnectionString = EnlaceBBDD.enlace();
+            miConexion.ConnectionString = EnlaceBBDD.enlace("prueba", "fernandoG321");
             try
             {
                 miConexion.Open();
@@ -85,6 +85,21 @@ namespace DAL
 
 
 
+                oPersona = new ClsPersona();
+                oPersona.Id = (int)miLector["IDPersona"];
+                oPersona.Nombre = (string)miLector["Nombre"];
+                oPersona.Apellido = (string)miLector["apellidos"];
+
+                if (miLector["fechaNac"] != System.DBNull.Value)
+                { 
+                    oPersona.FechaNac = (DateTime)miLector["fechaNac"];
+                }
+
+                oPersona.Direccion = (string)miLector["direccion"];
+
+                oPersona.Telefono = (string)miLector["telefono"];
+
+                listado.Add(oPersona);
 
 
 
@@ -99,7 +114,40 @@ namespace DAL
         #endregion
 
 
+        public int deletePersonaDAL(int id)
 
+        {
+
+            int numeroFilasAfectadas = 0;
+
+
+            miConexion.ConnectionString = EnlaceBBDD.enlace("prueba", "fernandoG321");
+
+            try
+
+            {
+
+                miConexion.Open();
+
+                miComando.CommandText = "DELETE FROM Personas WHERE IDPersona=@id";
+
+                miComando.Connection = miConexion;
+
+                numeroFilasAfectadas = miComando.ExecuteNonQuery();
+
+            }
+
+            catch (Exception ex)
+
+            {
+
+                throw ex;
+
+            }
+
+            return numeroFilasAfectadas;
+
+        }
 
 
 
