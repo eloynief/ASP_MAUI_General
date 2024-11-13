@@ -20,8 +20,13 @@ namespace GestionGeneral_ASP.Controllers
         //[HttpPost]
         public ActionResult ListadoPersonas()
         {
+            List<ClsPersona> miListadoVista=BL.ClaseListadosBL.listadoPersonasBL();
+            if (miListadoVista != null)
+            {
+                return View("MiError");
+            }
             //retorna la vista de personas
-            return View(BL.ClaseListadosBL.listadoPersonasBL());
+            return View(miListadoVista);
         }
 
 

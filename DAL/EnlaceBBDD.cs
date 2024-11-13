@@ -16,14 +16,10 @@ namespace DAL
         /// Metodo para el enlace de la base de datos
         /// </summary>
         /// <returns></returns>
-        public static string enlace(string usuario, string contrasena)
+        public static string enlace(string server,string baseDatos, string usuario, string contrasena)
         {
-            
-
-
             //enlace a la base de datos
-            string enlace = $"server=localhost;database=eloybadat;uid={usuario};pwd={contrasena};server=107-03\\SQLEXPRESS;database=Personas;uid={usuario};pwd={contrasena}; TrustServerCertificate = true;";
-
+            string enlace = $"server={server};database={baseDatos};uid={usuario};pwd={contrasena};";
 
             return enlace;
         }

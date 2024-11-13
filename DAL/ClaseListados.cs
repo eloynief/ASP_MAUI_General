@@ -1,4 +1,5 @@
-﻿using Entities;
+﻿using DAL.Excepciones;
+using Entities;
 using Microsoft.Data.SqlClient;
 
 namespace DAL
@@ -74,7 +75,7 @@ namespace DAL
 
 
 
-            miConexion.ConnectionString = EnlaceBBDD.enlace("prueba", "fernandoG321");
+            miConexion.ConnectionString = EnlaceBBDD.enlace("eloybadat.database.windows.net","eloybadat","prueba","fernandoG321");
             try
             {
                 miConexion.Open();
@@ -86,18 +87,19 @@ namespace DAL
 
 
                 oPersona = new ClsPersona();
-                oPersona.Id = (int)miLector["IDPersona"];
+                oPersona.Id = (int)miLector["ID"];
                 oPersona.Nombre = (string)miLector["Nombre"];
                 oPersona.Apellido = (string)miLector["apellidos"];
 
                 if (miLector["fechaNac"] != System.DBNull.Value)
                 { 
-                    oPersona.FechaNac = (DateTime)miLector["fechaNac"];
+                    oPersona.FechaNac = (DateTime)miLector["FechaNacimiento"];
                 }
 
-                oPersona.Direccion = (string)miLector["direccion"];
+                oPersona.Direccion = (string)miLector["Direccion"];
 
-                oPersona.Telefono = (string)miLector["telefono"];
+                oPersona.Telefono = (string)miLector["Telefono"];
+                oPersona.IdDepartamento = (int)miLector["IDDepartamento"];
 
                 listado.Add(oPersona);
 
@@ -105,9 +107,10 @@ namespace DAL
 
                 return listado;
             }
-            catch (Exception ex)
+            catch (BaseDatoException ex)
             {
-                return listado;
+                //throw ex;
+                return null;
             }
         }
 
@@ -121,7 +124,7 @@ namespace DAL
             int numeroFilasAfectadas = 0;
 
 
-            miConexion.ConnectionString = EnlaceBBDD.enlace("prueba", "fernandoG321");
+            miConexion.ConnectionString = EnlaceBBDD.enlace("eloybadat.database.windows.net", "eloybadat", "prueba", "fernandoG321");
 
             try
 
@@ -137,7 +140,7 @@ namespace DAL
 
             }
 
-            catch (Exception ex)
+            catch (BaseDatoException ex)
 
             {
 
