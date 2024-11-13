@@ -21,7 +21,7 @@ namespace GestionGeneral_ASP.Controllers
         public ActionResult ListadoPersonas()
         {
             List<ClsPersona> miListadoVista=BL.ClaseListadosBL.listadoPersonasBL();
-            if (miListadoVista != null)
+            if (miListadoVista == null)
             {
                 return View("MiError");
             }
