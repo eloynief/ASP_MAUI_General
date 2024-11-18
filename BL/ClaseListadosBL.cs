@@ -13,9 +13,9 @@ namespace BL
         public static List<ClsPersona> listadoPersonasBL()
         {
 
-            return DAL.ClaseListados.listadoPersonas();
+            //return DAL.ClaseListados.listadoPersonas();
 
-            //return DAL.ClaseListados.ListadoPersonasAZURE();
+            return DAL.ClaseListados.ListadoPersonasAZURE();
 
         }
 

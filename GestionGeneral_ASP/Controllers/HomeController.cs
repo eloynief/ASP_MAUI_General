@@ -32,6 +32,24 @@ namespace GestionGeneral_ASP.Controllers
 
 
 
+        // GET: PersonasController
+        [HttpPost]
+        public ActionResult Conectarse()
+        {
+            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
+            if (miListadoVista == null)
+            {
+                return View("MiError");
+            }
+            //retorna la vista de personas
+            return View(miListadoVista);
+        }
+
+
+
+
+
+
 
         /// <summary>
         /// Metodo para la pagina para EDITAR la persona (Es una simulacion)

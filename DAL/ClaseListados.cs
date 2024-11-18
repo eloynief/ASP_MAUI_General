@@ -59,12 +59,12 @@ namespace DAL
 
         #region funciones de BBDD
 
-        static SqlConnection miConexion = new SqlConnection();
         static SqlCommand miComando = new SqlCommand();
         static SqlDataReader miLector;
 
         public static List<ClsPersona> ListadoPersonasAZURE()
         {
+            SqlConnection miConexion = new SqlConnection();
 
             //se crea la lista de personas
             List<ClsPersona> listado = new List<ClsPersona>();
@@ -84,24 +84,37 @@ namespace DAL
                 miComando.Connection = miConexion;
                 miLector = miComando.ExecuteReader();
 
+                if (miLector.HasRows)
 
+                {
 
-                oPersona = new ClsPersona();
-                oPersona.Id = (int)miLector["ID"];
-                oPersona.Nombre = (string)miLector["Nombre"];
-                oPersona.Apellido = (string)miLector["apellidos"];
+                    while (miLector.Read())
 
-                if (miLector["fechaNac"] != System.DBNull.Value)
-                { 
-                    oPersona.FechaNac = (DateTime)miLector["FechaNacimiento"];
+                    {
+                        oPersona = new ClsPersona();
+                        oPersona.Id = (int)miLector["ID"];
+                        oPersona.Nombre = (string)miLector["Nombre"];
+                        oPersona.Apellido = (string)miLector["Apellidos"];
+
+                        if (miLector["FechaNacimiento"] != System.DBNull.Value)
+                        {
+                            oPersona.FechaNac = (DateTime)miLector["FechaNacimiento"];
+                        }
+
+                        oPersona.Direccion = (string)miLector["Direccion"];
+
+                        oPersona.Telefono = (string)miLector["Telefono"];
+                        oPersona.IdDepartamento = (int)miLector["IDDepartamento"];
+
+                        listado.Add(oPersona);
+                    }
+
+                miLector.Close();
+
+                miConexion.Close();
+
                 }
 
-                oPersona.Direccion = (string)miLector["Direccion"];
-
-                oPersona.Telefono = (string)miLector["Telefono"];
-                oPersona.IdDepartamento = (int)miLector["IDDepartamento"];
-
-                listado.Add(oPersona);
 
 
 
@@ -112,6 +125,10 @@ namespace DAL
                 //throw ex;
                 return null;
             }
+            finally
+            {
+                miConexion.Close();
+            }
         }
 
         #endregion
@@ -120,6 +137,7 @@ namespace DAL
         public int deletePersonaDAL(int id)
 
         {
+            SqlConnection miConexion = new SqlConnection();
 
             int numeroFilasAfectadas = 0;
 

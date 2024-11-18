@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Data.SqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,35 @@ namespace DAL
 
             return enlace;
         }
+
+        /// <summary>
+        /// metodo para obtener la conexion a la base de datos
+        /// </summary>
+        /// <returns></returns>
+        public static SqlConnection getConexion()
+        {
+            SqlConnection conexion = new SqlConnection();
+
+            try
+            {
+                conexion.ConnectionString = enlace("eloybadat.database.windows.net", "eloybadat", "prueba", "fernandoG321");
+                conexion.Open();
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+
+            return conexion;
+        }
+
+
+
+
 
     }
 }
