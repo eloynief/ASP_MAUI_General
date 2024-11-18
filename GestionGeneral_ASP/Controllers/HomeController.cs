@@ -1,6 +1,7 @@
 using Entities;
 using GestionGeneral_ASP.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
 using System.Diagnostics;
 
 namespace GestionGeneral_ASP.Controllers
@@ -33,20 +34,63 @@ namespace GestionGeneral_ASP.Controllers
 
 
         // GET: PersonasController
-        [HttpPost]
-        public ActionResult Conectarse()
+        public ActionResult Conectarse(Boolean comprobar)
         {
-            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
-            if (miListadoVista == null)
+            string estado = "Presione el botón para comprobar la conexión.";
+
+            if (comprobar)
             {
-                return View("MiError");
+                SqlConnection sqlConnection = DAL.EnlaceBBDD.getConexion();
+
+                if (sqlConnection.State == System.Data.ConnectionState.Open)
+                {
+                    estado = "Conexión exitosa con la base de datos.";
+                    sqlConnection.Close();
+                }
+                else
+                {
+                    estado = "No se pudo conectar con la base de datos.";
+                }
             }
-            //retorna la vista de personas
-            return View(miListadoVista);
+
+            ViewBag.estado = estado;
+            return View();
         }
 
 
 
+        // GET: Personas/Create
+        public IActionResult Create()
+        {
+            // Devuelve la vista para crear una nueva persona
+            return View();
+        }
+
+        // POST: Personas/Create
+        [HttpPost]
+        public IActionResult Create(ClsPersona nuevaPersona)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Llama a la capa de lógica de negocio para insertar la persona
+                    bool resultado = BL.ClaseListadosBL.AgregarPersonaBL(nuevaPersona);
+
+                    if (resultado)
+                    {
+                        return RedirectToAction(nameof(ListadoPersonas));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", "Error al guardar la persona: " + ex.Message);
+                }
+            }
+
+            // Si algo falla, devuelve la vista con los datos proporcionados por el usuario
+            return View(nuevaPersona);
+        }
 
 
 

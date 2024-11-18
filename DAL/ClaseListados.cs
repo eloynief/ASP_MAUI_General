@@ -171,7 +171,43 @@ namespace DAL
         }
 
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="persona"></param>
+        /// <returns></returns>
+        public static bool InsertarPersona(ClsPersona persona)
+        {
+            SqlConnection conexion = EnlaceBBDD.getConexion();
 
+            try
+            {
+                string query = "INSERT INTO Personas (Nombre, Apellido, FechaNac, Direccion, Telefono, IdDepartamento, Foto) " +
+                               "VALUES (@Nombre, @Apellido, @FechaNac, @Direccion, @Telefono, @IdDepartamento, @Foto)";
+
+                using (SqlCommand comando = new SqlCommand(query, conexion))
+                {
+                    comando.Parameters.AddWithValue("@Nombre", persona.Nombre);
+                    comando.Parameters.AddWithValue("@Apellido", persona.Apellido);
+                    comando.Parameters.AddWithValue("@FechaNac", persona.FechaNac);
+                    comando.Parameters.AddWithValue("@Direccion", persona.Direccion);
+                    comando.Parameters.AddWithValue("@Telefono", persona.Telefono);
+                    comando.Parameters.AddWithValue("@IdDepartamento", persona.IdDepartamento);
+                    comando.Parameters.AddWithValue("@Foto", persona.Foto ?? (object)DBNull.Value);
+
+                    int filasAfectadas = comando.ExecuteNonQuery();
+                    return filasAfectadas > 0;
+                }
+            }
+            catch
+            {
+                throw;
+            }
+            finally
+            {
+                //conexion.Close();
+            }
+        }
 
 
 

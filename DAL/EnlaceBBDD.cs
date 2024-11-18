@@ -10,7 +10,7 @@ namespace DAL
     /// <summary>
     /// clase para los enlaces de la base de datos
     /// </summary>
-    internal class EnlaceBBDD
+    public class EnlaceBBDD
     {
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace DAL
             }
             finally
             {
-                conexion.Close();
+                //conexion.Close();
             }
 
             return conexion;
