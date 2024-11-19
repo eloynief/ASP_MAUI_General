@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{D47EA13D-B710-4E8A-873B-099A9D4DDC7E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{D47EA13D-B710-4E8A-873B-099A9D4DDC7E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{2EE9B40B-463D-443A-8235-C760D8814887}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DAL", "DAL\DAL.csproj", "{2EE9B40B-463D-443A-8235-C760D8814887}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{8DDAB3FE-7055-4945-9860-2F6851A56CE8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BL", "BL\BL.csproj", "{8DDAB3FE-7055-4945-9860-2F6851A56CE8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionGeneral_ASP", "GestionGeneral_ASP\GestionGeneral_ASP.csproj", "{71FAE6B8-8B7E-4EBB-9908-655E93E4225F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionGeneral_ASP", "GestionGeneral_ASP\GestionGeneral_ASP.csproj", "{71FAE6B8-8B7E-4EBB-9908-655E93E4225F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GestionGeneral_MAUI", "GestionGeneral_MAUI\GestionGeneral_MAUI.csproj", "{17F32A62-0212-4307-A28B-7E4D973B0A78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionGeneral_MAUI", "GestionGeneral_MAUI\GestionGeneral_MAUI.csproj", "{17F32A62-0212-4307-A28B-7E4D973B0A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiGestionGeneralMAUI", "MiGestionGeneralMAUI\MiGestionGeneralMAUI.csproj", "{BB5FAAA6-A686-4EAF-81A9-B95537050F89}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,6 +43,12 @@ Global
 		{17F32A62-0212-4307-A28B-7E4D973B0A78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17F32A62-0212-4307-A28B-7E4D973B0A78}.Release|Any CPU.Build.0 = Release|Any CPU
 		{17F32A62-0212-4307-A28B-7E4D973B0A78}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

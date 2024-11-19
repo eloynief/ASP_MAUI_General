@@ -18,14 +18,14 @@ namespace DAL
             List<ClsPersona> listado = new List<ClsPersona>();
 
             // Agregamos personas a la lista
-            listado.Add(new ClsPersona(1, "Juan", "Pérez", new DateTime(1985, 5, 12), "Calle Falsa 123", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbS5mqDMLi2AvTNHyYS6qUQoP59Zgo1xZZ3w&s", "555-1234", 1));
-            listado.Add(new ClsPersona(2, "Ana", "García", new DateTime(1990, 3, 18), "Av. Siempre Viva 742", "https://econaturagourmet.com/wp-content/uploads/2021/10/jamon-iberico-de-bellota-cebo-de-campo-pata-negra-guijuelo-entero.jpg", "555-5678", 2));
+            listado.Add(new ClsPersona(1, "Juan", "Pérez", new DateTime(1985, 5, 12), "Calle Falsa 123", "https://media.tenor.com/TL4_bPWrQ7UAAAAM/explosion-run-away.gif", "555-1234", 1));
+            listado.Add(new ClsPersona(2, "Ana", "García", new DateTime(1990, 3, 18), "Av. Siempre Viva 742", "https://i.makeagif.com/media/7-16-2021/IwTI3x.gif", "555-5678", 2));
             listado.Add(new ClsPersona(3, "Luis", "Martínez", new DateTime(1982, 11, 23), "Paseo de la Reforma 200", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbS5mqDMLi2AvTNHyYS6qUQoP59Zgo1xZZ3w&s", "555-8765", 3));
 
             // Agregamos personas a la lista
-            listado.Add(new ClsPersona(1, "Juan", "Pérez", new DateTime(1985, 5, 12), "Calle Falsa 123", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbS5mqDMLi2AvTNHyYS6qUQoP59Zgo1xZZ3w&s", "555-1234", 1));
-            listado.Add(new ClsPersona(2, "Ana", "García", new DateTime(1990, 3, 18), "Av. Siempre Viva 742", "https://econaturagourmet.com/wp-content/uploads/2021/10/jamon-iberico-de-bellota-cebo-de-campo-pata-negra-guijuelo-entero.jpg", "555-5678", 2));
-            listado.Add(new ClsPersona(3, "Luis", "Martínez", new DateTime(1982, 11, 23), "Paseo de la Reforma 200", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbS5mqDMLi2AvTNHyYS6qUQoP59Zgo1xZZ3w&s", "555-8765", 3));
+            listado.Add(new ClsPersona(1, "Juan", "Pérez", new DateTime(1985, 5, 12), "Calle Falsa 123", "https://media.tenor.com/HNZjSajvqoAAAAAM/exploding-dog-running-dog.gif", "555-1234", 1));
+            listado.Add(new ClsPersona(2, "Ana", "García", new DateTime(1990, 3, 18), "Av. Siempre Viva 742", "https://media.tenor.com/TL4_bPWrQ7UAAAAM/explosion-run-away.gif", "555-5678", 2));
+            listado.Add(new ClsPersona(3, "Luis", "Martínez", new DateTime(1982, 11, 23), "Paseo de la Reforma 200", "https://media.tenor.com/1EZLeKXAv8kAAAAM/cat-explosion.gif", "555-8765", 3));
 
             // Agregamos personas a la lista
             listado.Add(new ClsPersona(1, "Juan", "Pérez", new DateTime(1985, 5, 12), "Calle Falsa 123", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbS5mqDMLi2AvTNHyYS6qUQoP59Zgo1xZZ3w&s", "555-1234", 1));
@@ -132,6 +132,30 @@ namespace DAL
         }
 
         #endregion
+
+
+
+
+
+
+
+
+
+
+        /// <summary>
+        /// funcion que edita la persona de ClsPersona en funcion al id correspondiente
+        /// </summary>
+        /// <param name="id"></param>
+        public void editarPersona(int id)
+        {
+
+
+        }
+
+
+
+
+
 
 
         public int deletePersonaDAL(int id)

@@ -59,38 +59,6 @@ namespace GestionGeneral_ASP.Controllers
 
 
 
-        // GET: Personas/Create
-        public IActionResult Create()
-        {
-            // Devuelve la vista para crear una nueva persona
-            return View();
-        }
-
-        // POST: Personas/Create
-        [HttpPost]
-        public IActionResult Create(ClsPersona nuevaPersona)
-        {
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    // Llama a la capa de lógica de negocio para insertar la persona
-                    bool resultado = BL.ClaseListadosBL.AgregarPersonaBL(nuevaPersona);
-
-                    if (resultado)
-                    {
-                        return RedirectToAction(nameof(ListadoPersonas));
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ModelState.AddModelError("", "Error al guardar la persona: " + ex.Message);
-                }
-            }
-
-            // Si algo falla, devuelve la vista con los datos proporcionados por el usuario
-            return View(nuevaPersona);
-        }
 
 
 
@@ -113,6 +81,85 @@ namespace GestionGeneral_ASP.Controllers
             //retornamos la vista con la persona del ViewModel
             return View();
         }
+
+        // GET: PersonaController/Details/5
+        public ActionResult Detalles(int id)
+        {
+            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
+
+            ClsPersona per = miListadoVista.FirstOrDefault(p => p.Id == id);
+
+            return View(per);
+        }
+
+
+        // POST: PersonaController/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
+        // GET: PersonaController/Edit/5
+        public ActionResult Editar(int id)
+        {
+
+
+            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
+
+            ClsPersona per= miListadoVista.FirstOrDefault(p => p.Id == id);
+
+            return View(per);
+        }
+
+        // POST: PersonaController/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Editar(int id, IFormCollection collection)
+        {
+            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
+
+            ClsPersona per = miListadoVista.FirstOrDefault(p => p.Id == id);
+
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(per);
+            }
+        }
+
+        // GET: PersonaController/Delete/5
+        public ActionResult Delete(int id)
+        {
+            return View();
+        }
+
+        // POST: PersonaController/Delete/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Delete(int id, IFormCollection collection)
+        {
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+
 
 
     }

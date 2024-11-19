@@ -15,7 +15,7 @@ namespace BL
 
             //return DAL.ClaseListados.listadoPersonas();
 
-            return DAL.ClaseListados.ListadoPersonasAZURE();
+            return DAL.ClaseListados.listadoPersonas();
 
         }
 

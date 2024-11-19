@@ -1,14 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="GestionGeneral_MAUI.MainPage"
-            xmlns:MiViewModelA="clr-namespace:GestionGeneral_MAUI.Models.ViewModels"
-             >
+             x:Class="MiGestionGeneralMAUI.MainPage"
+             xmlns:MiViewModelA="clr-namespace:MiGestionGeneralMAUI.ViewModels">
+
 
     <ContentPage.BindingContext>
         <MiViewModelA:PersonaVM></MiViewModelA:PersonaVM>
     </ContentPage.BindingContext>
-    
+
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
@@ -27,9 +27,11 @@
                                     <HorizontalStackLayout Spacing="15">
                                         <Image Source="{Binding Foto}" HeightRequest="60" WidthRequest="60" Aspect="AspectFill" />
                                         <VerticalStackLayout>
-                                            <Label Text="{Binding Nombre}" FontAttributes="Bold" FontSize="18" TextColor="#333" />
-                                            <Label Text="{Binding Apellido}" FontSize="14" TextColor="#666" />
+                                            <Label Text="{Binding Nombre}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#333" />
+                                            <Label Text="{Binding Apellido}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14" TextColor="#666" />
                                         </VerticalStackLayout>
+                                        <Button HorizontalOptions="End" VerticalOptions="Center" HeightRequest="50" WidthRequest="50" Margin="50" Text="Edit"></Button>
+                                        <Button HorizontalOptions="End" VerticalOptions="Center" HeightRequest="50" WidthRequest="50" Margin="50" Text="-"></Button>
                                     </HorizontalStackLayout>
                                 </Frame>
                             </ViewCell>
@@ -37,9 +39,9 @@
                     </ListView.ItemTemplate>
                 </ListView>
             </Grid>
-            
-            
-            
+
+
+
         </VerticalStackLayout>
     </ScrollView>
 

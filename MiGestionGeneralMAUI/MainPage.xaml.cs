@@ -1,7 +1,8 @@
-﻿namespace GestionGeneral_MAUI
+﻿namespace MiGestionGeneralMAUI
 {
     public partial class MainPage : ContentPage
     {
+        int count = 0;
 
         public MainPage()
         {
