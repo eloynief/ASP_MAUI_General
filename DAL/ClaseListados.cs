@@ -59,8 +59,8 @@ namespace DAL
 
         #region funciones de BBDD
 
-        static SqlCommand miComando = new SqlCommand();
-        static SqlDataReader miLector;
+        private static SqlCommand miComando = new SqlCommand();
+        private static SqlDataReader miLector;
 
         public static List<ClsPersona> ListadoPersonasAZURE()
         {
@@ -131,14 +131,71 @@ namespace DAL
             }
         }
 
+
+
+
+
+
+
+        public static List<ClsDepartamento> ListadoDepartamntosAZURE()
+        {
+            SqlConnection miConexion = new SqlConnection();
+
+            //se crea la lista de personas
+            List<ClsDepartamento> listado = new List<ClsDepartamento>();
+
+
+            ClsDepartamento oDepartamento;
+
+
+
+
+            miConexion.ConnectionString = EnlaceBBDD.enlace("eloybadat.database.windows.net", "eloybadat", "prueba", "fernandoG321");
+            try
+            {
+                miConexion.Open();
+                //Creamos el comando (Creamos el comando, le pasamos la sentencia y la conexion, y lo ejecutamos)
+                miComando.CommandText = "SELECT * FROM personas";
+                miComando.Connection = miConexion;
+                miLector = miComando.ExecuteReader();
+
+                if (miLector.HasRows)
+
+                {
+
+                    while (miLector.Read())
+
+                    {
+                        oDepartamento = new ClsDepartamento();
+                        oDepartamento.Id = (int)miLector["ID"];
+                        oDepartamento.Nombre = (string)miLector["Nombre"];
+
+
+                        listado.Add(oDepartamento);
+                    }
+
+                    miLector.Close();
+
+                    miConexion.Close();
+
+                }
+
+                return listado;
+            }
+            catch (BaseDatoException ex)
+            {
+                //throw ex;
+                return null;
+            }
+            finally
+            {
+                miConexion.Close();
+            }
+        }
+
+
+
         #endregion
-
-
-
-
-
-
-
 
 
 

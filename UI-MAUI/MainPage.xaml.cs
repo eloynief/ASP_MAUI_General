@@ -1,4 +1,4 @@
-﻿namespace MiGestionGeneralMAUI
+﻿namespace UI_MAUI
 {
     public partial class MainPage : ContentPage
     {
@@ -9,37 +9,17 @@
             InitializeComponent();
         }
 
-
-        //funciones de botones on click
-
-
-
-        private void AnadePersona(object sender, EventArgs e)
+        private void OnCounterClicked(object sender, EventArgs e)
         {
             count++;
-            //aviso del contador
+
             if (count == 1)
-                CounterBtn.Text = $"{count} persona mas";
+                CounterBtn.Text = $"Clicked {count} time";
             else
-                CounterBtn.Text = $"{count} personas mas";
+                CounterBtn.Text = $"Clicked {count} times";
 
             SemanticScreenReader.Announce(CounterBtn.Text);
-
-
-
-
-
-
-
-
-
-
         }
-
-
-
-
-
     }
 
 }

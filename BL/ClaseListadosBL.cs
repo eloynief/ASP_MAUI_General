@@ -19,6 +19,12 @@ namespace BL
 
         }
 
+        public static List<ClsDepartamento> listadoDepartamentosBL()
+        {
+
+            return DAL.ClaseListados.listadoDepartamentos();
+        }
+
 
 
     }

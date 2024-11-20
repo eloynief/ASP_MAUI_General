@@ -13,11 +13,22 @@ namespace MiGestionGeneralMAUI.ViewModels
     {
         private List<ClsPersona> personas;
 
+        //listado de departamentos
+        private List<ClsDepartamento> departamentos;
 
         private ClsPersona personaSeleccionada;
 
 
         public event PropertyChangedEventHandler? PropertyChanged;
+
+
+        public List<ClsDepartamento> Departamentos
+        {
+            get => departamentos;
+            set => departamentos = BL.ClaseListadosBL.listadoDepartamentosBL();
+
+        }
+
 
         public ClsPersona PersonaSeleccionada
         {

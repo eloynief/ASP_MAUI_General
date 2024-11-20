@@ -27,8 +27,17 @@
                                     <HorizontalStackLayout Spacing="15">
                                         <Image Source="{Binding Foto}" HeightRequest="60" WidthRequest="60" Aspect="AspectFill" />
                                         <VerticalStackLayout>
+                                            <Label Text="{Binding Id}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#333" />
+
                                             <Label Text="{Binding Nombre}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#333" />
                                             <Label Text="{Binding Apellido}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14" TextColor="#666" />
+
+                                            <Label Text="{Binding Direccion}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#333" />
+                                            <Label Text="{Binding Foto}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14" TextColor="#666" />
+
+                                            <Label Text="{Binding FechaNac}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold" FontSize="18" TextColor="#333" />
+                                            <Label Text="{Binding IdDepartamento}" HorizontalOptions="Center" VerticalOptions="Center" FontSize="14" TextColor="#666" />
+
                                         </VerticalStackLayout>
                                         <Button HorizontalOptions="End" VerticalOptions="Center" HeightRequest="50" WidthRequest="50" Margin="50" Text="Edit"></Button>
                                         <Button HorizontalOptions="End" VerticalOptions="Center" HeightRequest="50" WidthRequest="50" Margin="50" Text="-"></Button>
@@ -40,6 +49,17 @@
                 </ListView>
             </Grid>
 
+            <Label x:Name="CounterBtn"/>
+
+            <Button
+                Text="Añade la persona prro" 
+                SemanticProperties.Hint="Counts the number of times you click"
+                Clicked="AnadePersona"
+                HorizontalOptions="Fill" />
+            
+            
+            
+            
 
 
         </VerticalStackLayout>

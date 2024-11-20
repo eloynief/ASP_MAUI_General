@@ -139,17 +139,38 @@ namespace GestionGeneral_ASP.Controllers
             }
         }
 
+
+
+
         // GET: PersonaController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Borrar(int id)
         {
-            return View();
+
+            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
+
+            ClsPersona per = miListadoVista.FirstOrDefault(p => p.Id == id);
+
+
+
+            try
+            {
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View(per);
+            }
         }
 
         // POST: PersonaController/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Borrar(int id, IFormCollection collection)
         {
+            List<ClsPersona> miListadoVista = BL.ClaseListadosBL.listadoPersonasBL();
+
+            ClsPersona per = miListadoVista.FirstOrDefault(p => p.Id == id);
+
             try
             {
                 return RedirectToAction(nameof(Index));

@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionGeneral_ASP", "Gesti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GestionGeneral_MAUI", "GestionGeneral_MAUI\GestionGeneral_MAUI.csproj", "{17F32A62-0212-4307-A28B-7E4D973B0A78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiGestionGeneralMAUI", "MiGestionGeneralMAUI\MiGestionGeneralMAUI.csproj", "{BB5FAAA6-A686-4EAF-81A9-B95537050F89}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiGestionGeneralMAUI", "MiGestionGeneralMAUI\MiGestionGeneralMAUI.csproj", "{BB5FAAA6-A686-4EAF-81A9-B95537050F89}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI-MAUI", "UI-MAUI\UI-MAUI.csproj", "{E9F16848-A6E0-4422-98EC-0F65D46CA95A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,12 @@ Global
 		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Release|Any CPU.Build.0 = Release|Any CPU
 		{BB5FAAA6-A686-4EAF-81A9-B95537050F89}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{E9F16848-A6E0-4422-98EC-0F65D46CA95A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F16848-A6E0-4422-98EC-0F65D46CA95A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F16848-A6E0-4422-98EC-0F65D46CA95A}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{E9F16848-A6E0-4422-98EC-0F65D46CA95A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F16848-A6E0-4422-98EC-0F65D46CA95A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F16848-A6E0-4422-98EC-0F65D46CA95A}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
